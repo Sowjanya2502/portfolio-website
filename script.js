@@ -51,12 +51,15 @@ const seeMoreLabel = document.getElementById('seeMoreLabel');
 const extraProjects = document.querySelectorAll('.extra-project');
 let expanded = false;
 
+// Hide extras on load
+extraProjects.forEach(card => { card.style.display = 'none'; });
+
 seeMoreBtn.addEventListener('click', () => {
   expanded = !expanded;
   extraProjects.forEach(card => {
-    // Only show if not filtered out
-    if (!card.classList.contains('hidden')) {
-      card.classList.toggle('expanded', expanded);
+    // Only toggle cards that are not filtered out
+    if (!card.dataset.filteredOut) {
+      card.style.display = expanded ? 'flex' : 'none';
     }
   });
   seeMoreLabel.textContent = expanded ? 'Show Less' : 'See More Projects';
@@ -72,25 +75,34 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
-    // Collapse extras when switching filter
+
+    // Collapse extras on filter change
     expanded = false;
     seeMoreBtn.classList.remove('open');
     seeMoreLabel.textContent = 'See More Projects';
 
+    let anyExtrasVisible = false;
+
     projectCards.forEach(card => {
       const cats = card.dataset.category || '';
       const matches = filter === 'all' || cats.split(' ').includes(filter);
-      if (card.classList.contains('extra-project')) {
-        card.classList.remove('expanded');
-        card.classList.toggle('hidden', !matches);
+      const isExtra = card.classList.contains('extra-project');
+
+      if (isExtra) {
+        if (matches) {
+          card.dataset.filteredOut = '';
+          card.style.display = 'none'; // collapsed by default
+          anyExtrasVisible = true;
+        } else {
+          card.dataset.filteredOut = 'true';
+          card.style.display = 'none';
+        }
       } else {
-        card.classList.toggle('hidden', !matches);
+        card.style.display = matches ? 'flex' : 'none';
       }
     });
 
-    // Hide see-more button if no extras match
-    const anyExtras = [...extraProjects].some(c => !c.classList.contains('hidden'));
-    seeMoreBtn.parentElement.style.display = anyExtras ? 'block' : 'none';
+    seeMoreBtn.parentElement.style.display = anyExtrasVisible ? 'block' : 'none';
   });
 });
 

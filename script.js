@@ -45,6 +45,24 @@ function type() {
 }
 type();
 
+// ===== SEE MORE =====
+const seeMoreBtn = document.getElementById('seeMoreBtn');
+const seeMoreLabel = document.getElementById('seeMoreLabel');
+const extraProjects = document.querySelectorAll('.extra-project');
+let expanded = false;
+
+seeMoreBtn.addEventListener('click', () => {
+  expanded = !expanded;
+  extraProjects.forEach(card => {
+    // Only show if not filtered out
+    if (!card.classList.contains('hidden')) {
+      card.classList.toggle('expanded', expanded);
+    }
+  });
+  seeMoreLabel.textContent = expanded ? 'Show Less' : 'See More Projects';
+  seeMoreBtn.classList.toggle('open', expanded);
+});
+
 // ===== PROJECT FILTER =====
 const filterBtns = document.querySelectorAll('.filter-btn');
 const projectCards = document.querySelectorAll('.project-card');
@@ -54,11 +72,25 @@ filterBtns.forEach(btn => {
     filterBtns.forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     const filter = btn.dataset.filter;
+    // Collapse extras when switching filter
+    expanded = false;
+    seeMoreBtn.classList.remove('open');
+    seeMoreLabel.textContent = 'See More Projects';
+
     projectCards.forEach(card => {
       const cats = card.dataset.category || '';
-      const show = filter === 'all' || cats.split(' ').includes(filter);
-      card.classList.toggle('hidden', !show);
+      const matches = filter === 'all' || cats.split(' ').includes(filter);
+      if (card.classList.contains('extra-project')) {
+        card.classList.remove('expanded');
+        card.classList.toggle('hidden', !matches);
+      } else {
+        card.classList.toggle('hidden', !matches);
+      }
     });
+
+    // Hide see-more button if no extras match
+    const anyExtras = [...extraProjects].some(c => !c.classList.contains('hidden'));
+    seeMoreBtn.parentElement.style.display = anyExtras ? 'block' : 'none';
   });
 });
 

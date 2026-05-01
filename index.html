@@ -13,7 +13,7 @@
 
   <!-- ===== NAVBAR ===== -->
   <nav id="navbar">
-    <div class="nav-brand">DSP<span class="dot">.</span></div>
+    <div class="nav-brand"><i class="fas fa-network-wired nav-logo"></i></div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -37,6 +37,11 @@
         <span id="typewriter"></span><span class="cursor">|</span>
       </div>
       <p class="hero-sub">Machine Learning Engineer &amp; Data Scientist based in Seattle, WA</p>
+      <div class="hero-status">
+        <span class="status-dot"></span>
+        Finishing my Master's in Data Science at Seattle University — graduating June 2026.<br />
+        Open to <strong>Data Scientist</strong>, <strong>Machine Learning Engineer</strong>, and <strong>AI/ML</strong> roles.
+      </div>
       <div class="hero-cta">
         <a href="#projects" class="btn-primary">View Projects</a>
         <a href="#contact" class="btn-secondary">Get In Touch</a>
@@ -53,10 +58,10 @@
           <i class="fas fa-brain avatar-icon"></i>
         </div>
       </div>
-      <div class="floating-tag tag1">XGBoost</div>
+      <div class="floating-tag tag1">Real-time ML</div>
       <div class="floating-tag tag2">LLMs</div>
-      <div class="floating-tag tag3">Kafka</div>
-      <div class="floating-tag tag4">PyTorch</div>
+      <div class="floating-tag tag3">Deep Learning</div>
+      <div class="floating-tag tag4">Neural Nets</div>
       <div class="floating-tag tag5">RAG</div>
     </div>
   </section>
@@ -283,7 +288,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="vision ml">
+        <div class="project-card extra-project" data-category="vision ml">
           <div class="project-icon"><i class="fas fa-x-ray"></i></div>
           <h3>Bone Marrow Lesion Segmentation on MRI</h3>
           <p>Deep learning segmentation pipeline for bone marrow lesions in MRI scans, leveraging U-Net architecture with advanced preprocessing and post-processing techniques for clinical accuracy.</p>
@@ -293,7 +298,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="ml data">
+        <div class="project-card extra-project" data-category="ml data">
           <div class="project-icon"><i class="fas fa-hotel"></i></div>
           <h3>Hotel Demand Forecasting</h3>
           <p>Time-series forecasting model for hotel demand prediction, helping optimize pricing, staffing, and inventory decisions using historical booking patterns and seasonal features.</p>
@@ -303,7 +308,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="ml data">
+        <div class="project-card extra-project" data-category="ml data">
           <div class="project-icon"><i class="fas fa-heartbeat"></i></div>
           <h3>Predicting Diabetes Using Dietary Features</h3>
           <p>Classification model for diabetes prediction using demographic and dietary features, with comprehensive EDA, feature selection, and model interpretability analysis.</p>
@@ -313,7 +318,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="nlp ml">
+        <div class="project-card extra-project" data-category="nlp ml">
           <div class="project-icon"><i class="fas fa-link"></i></div>
           <h3>Function, Tools & Agents with LangChain</h3>
           <p>Exploration of LangChain agent architectures, tool-calling patterns, and function chaining to build autonomous AI systems capable of multi-step reasoning and tool use.</p>
@@ -323,7 +328,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="data">
+        <div class="project-card extra-project" data-category="data">
           <div class="project-icon"><i class="fas fa-chart-line"></i></div>
           <h3>Optimizing Cancellation Penalties for FetchFood</h3>
           <p>Data-driven optimization of cancellation penalty strategies for a food delivery platform using statistical modeling and causal inference to maximize fairness and revenue.</p>
@@ -333,7 +338,7 @@
           </div>
         </div>
 
-        <div class="project-card" data-category="data">
+        <div class="project-card extra-project" data-category="data">
           <div class="project-icon"><i class="fas fa-database"></i></div>
           <h3>Health Care Database Management System</h3>
           <p>Comprehensive healthcare database system with efficient schema design, query optimization, and a Python-based interface for managing patient records and clinical workflows.</p>
@@ -343,6 +348,12 @@
           </div>
         </div>
 
+      </div>
+      <div class="see-more-wrap">
+        <button id="seeMoreBtn" class="btn-see-more">
+          <span id="seeMoreLabel">See More Projects</span>
+          <i id="seeMoreIcon" class="fas fa-chevron-down"></i>
+        </button>
       </div>
     </div>
   </section>

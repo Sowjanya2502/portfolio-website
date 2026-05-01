@@ -202,7 +202,7 @@ body {
 .tag3 { bottom: 60px; left: 0; animation: float1 5s ease-in-out infinite; }
 .tag4 { bottom: 30px; right: 10px; animation: float2 4.5s ease-in-out infinite; }
 .tag5 { top: 50%; right: -20px; animation: float1 3.8s ease-in-out infinite; }
-.tag6 { top: 50%; left: -10px; animation: float2 4.2s ease-in-out infinite; }
+.tag6 { top: 50%; left: -60px; animation: float2 4.2s ease-in-out infinite; }
 
 @keyframes float1 { 0%,100% { transform: translateY(0) } 50% { transform: translateY(-10px) } }
 @keyframes float2 { 0%,100% { transform: translateY(0) } 50% { transform: translateY(10px) } }

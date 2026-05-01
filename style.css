@@ -121,20 +121,8 @@ body {
 .cursor { animation: blink 1s step-end infinite; }
 @keyframes blink { 0%,100% { opacity:1 } 50% { opacity:0 } }
 
-.hero-sub { color: var(--text-muted); margin-bottom: 16px; font-size: 1rem; }
-
-.hero-status {
-  display: inline-block;
-  background: rgba(124, 58, 237, 0.1);
-  border: 1px solid rgba(124, 58, 237, 0.35);
-  border-radius: 10px;
-  padding: 12px 18px;
-  font-size: 0.88rem;
-  color: var(--text-muted);
-  line-height: 1.7;
-  margin-bottom: 32px;
-}
-.hero-status strong { color: var(--accent2); }
+.hero-sub { color: var(--text-muted); margin-bottom: 32px; font-size: 1rem; line-height: 1.7; }
+.hero-sub strong { color: var(--accent2); }
 .status-dot {
   display: inline-block;
   width: 8px; height: 8px;
